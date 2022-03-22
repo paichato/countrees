@@ -19,7 +19,7 @@ import {
 } from "@expo-google-fonts/archivo";
 
 export default function App() {
-  const isLoadingComplete = useCachedResources();
+  // const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
   let [fontsLoaded] = useFonts({
@@ -36,8 +36,8 @@ export default function App() {
     return (
       // <SafeAreaProvider>
       <ThemeProvider theme={theme}>
-        {/* <Navigation colorScheme={colorScheme} /> */}
-        <Home />
+        <Navigation colorScheme={colorScheme} />
+        {/* <Home /> */}
         <StatusBar />
       </ThemeProvider>
       // </SafeAreaProvider>
