@@ -9,6 +9,8 @@ export const Container = styled.View`
   /* padding-top: 80px; */
 `;
 
+export const ContainerWrapper = styled.ScrollView``;
+
 export const Title = styled.Text`
   font-size: ${RFValue(18)}px;
   font-family: ${({ theme }) => theme.fonts.secondary_600};
@@ -25,7 +27,7 @@ export const Description = styled.Text`
   color: ${({ theme }) => theme.colors.text_detail};
 `;
 export const HugeText = styled.Text`
-  font-size: ${RFValue(26)}px;
+  font-size: ${RFValue(24)}px;
   font-family: ${({ theme }) => theme.fonts.secondary_400};
   color: ${({ theme }) => theme.colors.text_detail};
 `;
@@ -48,7 +50,7 @@ export const HorizontalDivider = styled.View`
   width: 2px;
   background-color: ${({ theme }) => theme.colors.line}; ;
 `;
-export const Joiner = styled.View`
+export const Joiner = styled.ScrollView`
   flex-direction: row;
 `;
 

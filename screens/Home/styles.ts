@@ -8,16 +8,17 @@ import { RFValue } from "react-native-responsive-fontsize";
 
 // import { withTheme } from "styled-components";
 
-export const Container = styled.View`
-  flex: 1;
+export const Container = styled.KeyboardAvoidingView`
+  /* flex: 1; */
   background-color: ${({ theme }) => theme.colors.bg_primary};
   padding: 24px;
   justify-content: space-between;
+  height: 100%;
 `;
 
 export const Header = styled.View`
   width: 100%;
-  height: ${hp("30%")}px;
+  /* height: ${hp("30%")}px; */
   /* background-color: ${({ theme }) => theme.colors.header}; */
 `;
 
@@ -89,4 +90,24 @@ export const Divider = styled.View`
   height: 1;
   opacity: 0.2;
   background-color: ${({ theme }) => theme.colors.text_detail};
+`;
+
+export const CountryFilter = styled.View`
+  width: 100%;
+  /* height: 50px; */
+  flex-direction: row;
+  padding: 5px;
+  align-items: center;
+`;
+export const FilterInput = styled.TextInput`
+  flex: 1;
+  border-color: ${({ theme }) => theme.colors.line};
+  border-width: 2px;
+  border-radius: 5px;
+  padding-left: 10px;
+  height: 40px;
+`;
+export const FilterIconWrapper = styled.View`
+  width: 40;
+  padding: 5px;
 `;
