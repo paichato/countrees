@@ -26,6 +26,7 @@ import { jsonToCSV } from "react-native-csv";
 import * as MediaLibrary from "expo-media-library";
 import Papa from "papaparse";
 import html_tablify from "html-tablify";
+import * as Animatable from "react-native-animatable";
 
 import * as XLSX from "xlsx";
 import { writeFileXLSX } from "xlsx";
@@ -300,7 +301,11 @@ export default function CountryDetails() {
         <BannerContent>
           <Wrapper>
             <Description>Capital</Description>
-            <Title>{selectedCountry[0]?.capital[0]}</Title>
+            <Title>
+              {selectedCountry[0]?.capital[0]
+                ? selectedCountry[0]?.capital[0]
+                : selectedCountry[0]?.capital}
+            </Title>
           </Wrapper>
           <HorizontalDivider />
           <RightWrapper>
@@ -343,17 +348,23 @@ export default function CountryDetails() {
           </RightWrapper>
         </BannerContent>
         <Wrapper bg></Wrapper>
-        <ExportButton onPress={handleDownloadCSV}>
-          <WhiteTitle>Exportar CSV</WhiteTitle>
-        </ExportButton>
+        <Animatable.View animation="fadeInUp" delay={200}>
+          <ExportButton onPress={handleDownloadCSV}>
+            <WhiteTitle>Exportar CSV</WhiteTitle>
+          </ExportButton>
+        </Animatable.View>
         <Spacer />
-        <ExportButton onPress={handleDownloadXML}>
-          <WhiteTitle>Exportar XML</WhiteTitle>
-        </ExportButton>
+        <Animatable.View animation="fadeInUp" delay={400}>
+          <ExportButton onPress={handleDownloadXML}>
+            <WhiteTitle>Exportar XML</WhiteTitle>
+          </ExportButton>
+        </Animatable.View>
         <Spacer />
-        <ExportButton onPress={handleDownloadXLS}>
-          <WhiteTitle>Exportar XLS</WhiteTitle>
-        </ExportButton>
+        <Animatable.View animation="fadeInUp" delay={600}>
+          <ExportButton onPress={handleDownloadXLS}>
+            <WhiteTitle>Exportar XLS</WhiteTitle>
+          </ExportButton>
+        </Animatable.View>
       </ContainerWrapper>
     </Container>
   );

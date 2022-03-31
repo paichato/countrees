@@ -84,7 +84,7 @@ export default function Home() {
   }, []);
 
   function filterCountries() {
-    const data = countriesData.filter((country) => {
+    const data = countriesData.filter((country: any) => {
       let name = country.name.common;
       let translatedName = country.translations.por.common;
       let region = country.region;
@@ -109,7 +109,7 @@ export default function Home() {
 
   const handleUnFocus = () => {
     setFocus(false);
-    inputRef.current.blur();
+    inputRef?.current?.blur();
     // Keyboard.dismiss();
   };
 
@@ -137,12 +137,11 @@ export default function Home() {
     const selectedCountry = filteredArray.filter(
       (c: any) => c.translations.por.common === country
     );
-    // console.log(selectedCountry);
+
     navigation.navigate("CountryDetails", { selectedCountry } as any);
     handleUnFocus();
   };
 
-  //country Component
   const renderItem = ({ item, index }: any) => {
     return (
       <Animatable.View
@@ -159,6 +158,8 @@ export default function Home() {
       </Animatable.View>
     );
   };
+
+  //country Component
 
   const Country = ({ imgUrl, countryName, countryRegion }: CountryProps) => {
     return (
@@ -235,6 +236,7 @@ export default function Home() {
                 onChangeText={setSearchInput}
                 value={searchInput}
                 ref={inputRef}
+                placeholder="Pesquisar País ou região"
               />
             </>
             <FilterIconWrapper>
@@ -256,6 +258,12 @@ export default function Home() {
                 keyExtractor={(item) => String(item.translations.por.common)}
                 ItemSeparatorComponent={() => <Divider />}
                 renderItem={renderItem}
+                renderEmpty={() => (
+                  <Text style={{ color: theme.colors.text_detail }}>
+                    {" "}
+                    País não encontrado{" "}
+                  </Text>
+                )}
                 // maxToRenderPerBatch={1}
                 // disableVirtualization
                 // windowSize={10}
